@@ -1,0 +1,58 @@
+# laravel
+/vendor
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# environment secrets
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+/auth.json
+
+# database
+/database/*.sqlite
+/database/*.sqlite-journal
+
+# test
+.phpunit.result.cache
+.phpunit.cache
+/coverage
+.phpunit.xml.bak
+
+# editors
+/.idea
+/.vscode
+/.fleet
+/.nova
+/.zed
+.phpactor.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+# /data
+
+# outros
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+*.log

@@ -11,12 +11,9 @@ Aplicação backend para processamento, transformação e sincronização de dad
 
 ### 1. Executar a aplicação
 
-Comando no terminal (primeira execução):
+Comando no terminal:
 ```bash
-cp .env.example .env
-docker compose build
-docker compose run --rm app php artisan key:generate
-docker compose up
+docker compose up --build
 ```
 
 API disponivel em http://localhost:8000

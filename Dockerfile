@@ -16,6 +16,8 @@ COPY . .
 
 RUN composer dump-autoload --optimize
 
+RUN cp .env.example .env && php artisan key:generate
+
 # imagem app
 FROM php:8.4-cli
 

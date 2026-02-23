@@ -7,7 +7,6 @@ services:
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
-      - ./.env:/var/www/html/.env
       - ./database:/var/www/html/database
     ports:
       - "8000:8000"

@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "Sync Store API",
+    "description": "Collection para a API de sincronização de produtos e preços.\n\n**Pré-requisito:** Execute `migrate` antes de usar os endpoints de sincronização.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/health",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Verifica a saúde da aplicação e conectividade com o banco de dados."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sincronização",
+      "item": [
+        {
+          "name": "Sincronizar produtos",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/sincronizar/produtos",
+              "host": ["{{base_url}}"],
+              "path": ["api", "sincronizar", "produtos"]
+            },
+            "description": "Executa a transformacao e sincronizacao dos dados de produtos_base para produto_insercao."
+          }
+        },
+        {
+          "name": "Sincronizar preços",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/sincronizar/precos",
+              "host": ["{{base_url}}"],
+              "path": ["api", "sincronizar", "precos"]
+            },
+            "description": "Executa a transformacao e sincronizacao dos dados de precos_base para preco_insercao."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produtos e preços",
+      "item": [
+        {
+          "name": "Listar Produtos e preços (Paginado)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/produtos-precos?page=1&per_page=4",
+              "host": ["{{base_url}}"],
+              "path": ["api", "produtos-precos"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "pagina atual"
+                },
+                {
+                  "key": "per_page",
+                  "value": "4",
+                  "description": "itens por pagina"
+                }
+              ]
+            },
+            "description": "Retorna os produtos sincronizados com seus precos, de forma paginada."
+          }
+        }
+      ]
+    }
+  ]
+}
